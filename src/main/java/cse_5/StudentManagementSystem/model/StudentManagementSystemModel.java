@@ -1,10 +1,6 @@
-
 package cse_5.StudentManagementSystem.model;
-
 import java.sql.Date;
-
 public class StudentManagementSystemModel {
-
     private int studentid;
     private String studentname;
     private String branch;
@@ -12,13 +8,9 @@ public class StudentManagementSystemModel {
     private String mobileno;
     private String address;
     private Date dateofbirth;
-
-  
     public StudentManagementSystemModel() {
         
     }
-
-    
     public StudentManagementSystemModel(int studentid, String studentname, String branch,
                    String email, String mobileno, String address,
                    Date dateofbirth) {
