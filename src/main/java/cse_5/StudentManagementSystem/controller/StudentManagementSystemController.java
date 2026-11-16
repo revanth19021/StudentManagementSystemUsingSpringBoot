@@ -1,10 +1,15 @@
 package cse_5.StudentManagementSystem.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
 
 import cse_5.StudentManagementSystem.model.StudentManagementSystemModel;
 import cse_5.StudentManagementSystem.service.StudentManagementSystemService;
@@ -36,9 +41,27 @@ public class StudentManagementSystemController {
 	public String deleting() {
 		return "delete";
 	}
+	
+	
 	@GetMapping("/contact")
 	public String contacting() {
 		return "contact";
+	}
+	
+	@GetMapping("/retrieving")
+	public String getstudent(Model model){
+		 List<StudentManagementSystemModel> students =
+		            service.getstudentdetails();
+
+		    model.addAttribute("students", students);
+
+		    return "retrieving";
+	}
+	
+	@GetMapping("/viewingonedetail")
+	@ResponseBody
+	public StudentManagementSystemModel getstudentid(@PathVariable int id) {
+		return service.getStudentById(id);
 	}
 	
 	@PostMapping("/register")
