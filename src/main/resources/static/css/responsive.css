@@ -1,0 +1,253 @@
+
+/* ==========================================
+   COMMON RESPONSIVE CSS
+   Student Management System
+   Applies to all HTML pages
+========================================== */
+
+/* Tablet and below */
+@media screen and (max-width: 991px) {
+
+    /* Navbar */
+    .navbar-collapse {
+        padding-top: 15px;
+    }
+
+    .navbar-nav {
+        gap: 5px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        padding: 10px 12px !important;
+    }
+
+    /* Page headings */
+    .page-header {
+        padding: 45px 15px 65px;
+    }
+
+    /* Main containers */
+    .container {
+        max-width: 95%;
+    }
+
+    /* Cards */
+    .search-card,
+    .update-card,
+    .result-card {
+        padding: 25px;
+    }
+}
+
+
+/* Mobile devices */
+@media screen and (max-width: 767px) {
+
+    /* General */
+    body {
+        font-size: 14px;
+    }
+
+    /* Navbar */
+    .navbar {
+        padding: 12px 0;
+    }
+
+    .navbar-brand {
+        font-size: 17px;
+    }
+
+    .navbar-toggler {
+        padding: 5px 9px;
+    }
+
+    .navbar-collapse {
+        margin-top: 12px;
+    }
+
+    .nav-link {
+        display: block;
+        padding: 10px !important;
+        border-radius: 6px;
+    }
+
+    /* Page headers */
+    .page-header {
+        padding: 35px 12px 55px;
+    }
+
+    .page-header h1 {
+        font-size: 26px;
+        line-height: 1.3;
+    }
+
+    .page-header p {
+        font-size: 14px;
+    }
+
+    .header-icon {
+        width: 55px;
+        height: 55px;
+        font-size: 25px;
+    }
+
+    /* Main containers */
+    .search-container,
+    .update-container {
+        width: 94%;
+        margin-top: -25px;
+        margin-bottom: 40px;
+    }
+
+    /* Common cards */
+    .search-card,
+    .update-card,
+    .result-card {
+        padding: 20px 16px;
+        border-radius: 13px;
+    }
+
+    /* Forms */
+    .form-control,
+    .form-select {
+        font-size: 14px;
+        padding: 11px;
+    }
+
+    .form-label {
+        font-size: 14px;
+    }
+
+    /* Buttons */
+    .button-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .button-group .btn {
+        width: 100%;
+    }
+
+    /* Student details */
+    .student-details {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-item {
+        padding: 13px 4px;
+    }
+
+    /* Tables */
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .table {
+        min-width: 650px;
+        font-size: 13px;
+    }
+
+    /* Cards and grids */
+    .row {
+        --bs-gutter-x: 12px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 18px 12px;
+        font-size: 13px;
+    }
+
+    .footer p {
+        font-size: 12px;
+    }
+}
+
+
+/* Small mobile devices */
+@media screen and (max-width: 480px) {
+
+    /* Headings */
+    h1 {
+        font-size: 23px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+
+    /* Navbar */
+    .navbar-brand {
+        font-size: 15px;
+    }
+
+    /* Cards */
+    .search-card,
+    .update-card,
+    .result-card {
+        padding: 17px 13px;
+    }
+
+    /* Card headings */
+    .card-heading {
+        gap: 10px;
+    }
+
+    .card-heading h3 {
+        font-size: 17px;
+    }
+
+    .heading-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 21px;
+        flex-shrink: 0;
+    }
+
+    /* Search and form buttons */
+    .search-btn,
+    .update-btn,
+    .clear-btn {
+        padding: 11px 15px;
+        font-size: 14px;
+    }
+
+    /* Footer */
+    .footer {
+        padding: 16px 8px;
+    }
+}
+
+
+/* Extra small devices */
+@media screen and (max-width: 360px) {
+
+    .navbar-brand {
+        font-size: 13px;
+    }
+
+    .page-header h1 {
+        font-size: 21px;
+    }
+
+    .page-header p {
+        font-size: 12px;
+    }
+
+    .search-container,
+    .update-container {
+        width: 96%;
+    }
+
+    .search-card,
+    .update-card,
+    .result-card {
+        padding: 14px 10px;
+    }
+}
