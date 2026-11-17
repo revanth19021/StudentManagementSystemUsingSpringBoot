@@ -1,46 +1,471 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Delete Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Delete Student - ABC College</title>
+
+   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    
+    <style>
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fc;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Advanced Loader */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #123c69;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-content .spinner-border {
+            width: 60px;
+            height: 60px;
+        }
+
+        .loader-content h4 {
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        .header-section {
+            background: linear-gradient(135deg, #123c69, #2874a6);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .header-section h1 {
+            font-size: 36px;
+            font-weight: 700;
+        }
+
+        .header-section p {
+            margin-top: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #172b4d;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            padding: 12px 15px;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: #2874a6;
+            border-radius: 6px;
+        }
+
+        /* Main Section */
+        .delete-section {
+            min-height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 50px 15px;
+        }
+
+        /* Delete Card */
+        .delete-card {
+            width: 100%;
+            max-width: 550px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.09);
+            text-align: center;
+            border-top: 5px solid #dc3545;
+            transition: 0.3s;
+        }
+
+        .delete-card:hover {
+            box-shadow: 0 12px 30px rgba(0,0,0,0.13);
+        }
+
+        .delete-icon {
+            font-size: 65px;
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+
+        .delete-card h2 {
+            color: #123c69;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .delete-card p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* Form */
+        .form-label {
+            font-weight: 600;
+            color: #123c69;
+            text-align: left;
+            display: block;
+        }
+
+        .form-control {
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccd5df;
+        }
+
+        .form-control:focus {
+            border-color: #2874a6;
+            box-shadow: 0 0 0 0.2rem rgba(40,116,166,0.15);
+        }
+
+        /* Buttons */
+        .btn-delete {
+            background: #dc3545;
+            color: white;
+            padding: 11px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-delete:hover {
+            background: #b02a37;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-clear {
+            background: #6c757d;
+            color: white;
+            padding: 11px 25px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-clear:hover {
+            background: #495057;
+            color: white;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            color: #856404;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 22px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background: #172b4d;
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+        }
+
+        footer p {
+            margin: 5px;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media(max-width: 576px) {
+
+            .header-section h1 {
+                font-size: 27px;
+            }
+
+            .delete-card {
+                padding: 25px 18px;
+            }
+
+            .delete-icon {
+                font-size: 50px;
+            }
+
+            .btn-delete,
+            .btn-clear {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 <body>
 
-    <h1>Delete Student Details</h1>
+<!-- Advanced Page Loader -->
+<div id="loader">
 
-    <nav>
-        <a th:href="@{/}">Home</a> |
-        <a th:href="@{/about}">About</a> |
-        <a th:href="@{/register}">Register</a> |
-        <a th:href="@{/update}">Update</a> |
-        <a th:href="@{/delete}">Delete</a> |
-        <a th:href="@{/contact}">Contact</a> |
-        |
-        <a th:href="@{/retrieving}">View All Students</a>
-    </nav>
-    <hr>
+    <div class="loader-content">
 
-    <h2>Delete Student Record</h2>
+        <div class="spinner-border text-light" role="status"></div>
 
-    <p>Enter the Student ID to delete the student record.</p>
+        <h4>ABC ENGINEERING COLLEGE</h4>
 
-    <form action="/delete" method="post">
+        <p>Loading Delete Student Page...</p>
 
-        <label>Student ID:</label>
-        <input type="number" name="studentid" required>
-        <br><br>
+    </div>
 
-        <button type="submit">Delete Student</button>
-        <button type="reset">Clear</button>
+</div>
 
-    </form>
+<!-- Header -->
+<header class="header-section">
 
-    <hr>
+    <h1>
+        <i class="bi bi-trash3-fill"></i>
+        Delete Student Details
+    </h1>
 
-    <footer>
-        <p>&copy; 2026 Student Management System</p>
-    </footer>
+    <p>Student Management System</p>
+
+</header>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+    <div class="container">
+
+        <a class="navbar-brand" th:href="@{/}">
+            <i class="bi bi-mortarboard-fill"></i>
+            ABC College
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarMenu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">
+                        <i class="bi bi-info-circle"></i> About
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">
+                        <i class="bi bi-person-plus"></i> Register
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/update}">
+                        <i class="bi bi-pencil-square"></i> Update
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/delete}">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contact}">
+                        <i class="bi bi-envelope"></i> Contact
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/retrieving}">
+                        <i class="bi bi-people"></i> Students
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+<!-- Delete Student Form -->
+<div class="container delete-section">
+
+    <div class="delete-card">
+
+        <i class="bi bi-person-x-fill delete-icon"></i>
+
+        <h2>Delete Student Record</h2>
+
+        <p>
+            Enter the Student ID to delete the student record
+            from the Student Management System.
+        </p>
+
+        <!-- Warning Message -->
+        <div class="warning-box">
+
+            <i class="bi bi-exclamation-triangle-fill"></i>
+
+            <strong>Warning:</strong>
+            Deleting a student record is a permanent action.
+            Please verify the Student ID before submitting.
+
+        </div>
+
+        <!-- Delete Form -->
+        <form th:action="@{/delete}" method="post"
+              onsubmit="return confirmDelete()">
+
+            <div class="mb-4 text-start">
+
+                <label class="form-label">
+                    <i class="bi bi-person-badge"></i>
+                    Student ID
+                </label>
+
+                <input type="number"
+                       name="studentid"
+                       class="form-control"
+                       placeholder="Enter Student ID"
+                       min="1"
+                       required>
+
+            </div>
+
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+
+                <button type="submit" class="btn btn-delete">
+
+                    <i class="bi bi-trash-fill"></i>
+                    Delete Student
+
+                </button>
+
+                <button type="reset" class="btn btn-clear">
+
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    Clear
+
+                </button>
+
+            </div>
+
+        </form>
+
+        <div class="mt-4">
+
+            <a th:href="@{/retrieving}"
+               class="text-decoration-none">
+
+                <i class="bi bi-arrow-left"></i>
+                View All Students
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+
+    <h5>ABC Engineering College</h5>
+
+    <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
+
+    <p>Designed for College Administration</p>
+
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Delete Confirmation -->
+<script>
+
+    function confirmDelete() {
+
+        return confirm(
+            "Are you sure you want to permanently delete this student record?"
+        );
+
+    }
+
+</script>
+
+<!-- Loader Script -->
+<script>
+
+    window.addEventListener("load", function() {
+
+        const loader = document.getElementById("loader");
+
+        loader.style.opacity = "0";
+
+        setTimeout(function() {
+
+            loader.style.display = "none";
+
+        }, 600);
+
+    });
+
+</script>
 
 </body>
 </html>

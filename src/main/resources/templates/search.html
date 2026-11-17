@@ -1,87 +1,186 @@
 
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
-    <title>Search Student</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Student | Student Management System</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/search.css}">
 </head>
+
 <body>
 
-    <h1>Student Management System</h1>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" th:href="@{/}">
+                <i class="bi bi-mortarboard-fill me-2"></i>
+                Student Management System
+            </a>
 
-    <nav>
-        <a th:href="@{/}">Home</a> |
-        <a th:href="@{/about}">About</a> |
-        <a th:href="@{/register}">Register</a> |
-        <a th:href="@{/update}">Update</a> |
-        <a th:href="@{/delete}">Delete</a> |
-        <a th:href="@{/contact}">Contact</a> |
-        <a th:href="@{/retrieving}">View All Students</a> |
-        <a th:href="@{/search}">Search Student</a>
+            <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/about}">About</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/register}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/update}">Update</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/delete}">Delete</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/contact}">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/retrieving}">View Students</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/search}">Search</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
-    <hr>
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container text-center">
+            <span class="header-icon">
+                <i class="bi bi-search"></i>
+            </span>
+            <h1>Search Student Details</h1>
+            <p>Find student information quickly using their Student ID.</p>
+        </div>
+    </section>
 
-    <h2>Search Student Details</h2>
+    <!-- Main Content -->
+    <main class="container search-container">
 
-    <form th:action="@{/search}" method="get">
+        <!-- Search Card -->
+        <div class="search-card">
 
-        <label>Enter Student ID:</label>
+            <div class="card-heading">
+                <div class="heading-icon">
+                    <i class="bi bi-person-search"></i>
+                </div>
+                <div>
+                    <h3>Find a Student</h3>
+                    <p>Enter the registered Student ID below.</p>
+                </div>
+            </div>
 
-        <input type="number"
-               name="studentid"
-               required>
+            <form th:action="@{/search}" method="get">
 
-        <button type="submit">Search</button>
+                <label for="studentid" class="form-label">
+                    Student ID
+                </label>
 
-        <button type="reset">Clear</button>
+                <div class="input-group search-input-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person-badge"></i>
+                    </span>
 
-    </form>
+                    <input type="number"
+                           class="form-control"
+                           id="studentid"
+                           name="studentid"
+                           placeholder="Enter Student ID"
+                           required>
+                </div>
 
-    <hr>
+                <div class="button-group">
+                    <button type="submit" class="btn search-btn">
+                        <i class="bi bi-search me-2"></i>Search Student
+                    </button>
 
-    <h2>Student Details</h2>
+                    <button type="reset" class="btn clear-btn">
+                        <i class="bi bi-arrow-counterclockwise me-2"></i>Clear
+                    </button>
+                </div>
 
-    <p th:if="${message}" th:text="${message}"></p>
+            </form>
+        </div>
 
-    <div th:if="${student != null}">
+        <!-- Message -->
+        <div th:if="${message}" class="alert custom-alert mt-4">
+            <i class="bi bi-info-circle-fill me-2"></i>
+            <span th:text="${message}"></span>
+        </div>
 
-        <p>Student ID:
-            <span th:text="${student.studentid}"></span>
-        </p>
+        <!-- Student Details -->
+        <div th:if="${student != null}" class="result-card">
 
-        <p>Student Name:
-            <span th:text="${student.studentname}"></span>
-        </p>
+            <div class="result-heading">
+                <div>
+                    <span class="result-label">SEARCH RESULT</span>
+                    <h3>Student Information</h3>
+                </div>
 
-        <p>Branch:
-            <span th:text="${student.branch}"></span>
-        </p>
+                <span class="result-icon">
+                    <i class="bi bi-person-check-fill"></i>
+                </span>
+            </div>
 
-        <p>Email:
-            <span th:text="${student.email}"></span>
-        </p>
+            <div class="student-details">
 
-        <p>Mobile Number:
-            <span th:text="${student.mobileno}"></span>
-        </p>
+                <div class="detail-item">
+                    <span><i class="bi bi-hash"></i> Student ID</span>
+                    <strong th:text="${student.studentid}"></strong>
+                </div>
 
-        <p>Address:
-            <span th:text="${student.address}"></span>
-        </p>
+                <div class="detail-item">
+                    <span><i class="bi bi-person"></i> Student Name</span>
+                    <strong th:text="${student.studentname}"></strong>
+                </div>
 
-        <p>Date of Birth:
-            <span th:text="${student.dateofbirth}"></span>
-        </p>
+                <div class="detail-item">
+                    <span><i class="bi bi-building"></i> Branch</span>
+                    <strong th:text="${student.branch}"></strong>
+                </div>
 
-    </div>
+                <div class="detail-item">
+                    <span><i class="bi bi-envelope"></i> Email</span>
+                    <strong th:text="${student.email}"></strong>
+                </div>
 
-    <hr>
+                <div class="detail-item">
+                    <span><i class="bi bi-telephone"></i> Mobile Number</span>
+                    <strong th:text="${student.mobileno}"></strong>
+                </div>
 
-    <footer>
-        <p>&copy; 2026 Student Management System</p>
+                <div class="detail-item">
+                    <span><i class="bi bi-geo-alt"></i> Address</span>
+                    <strong th:text="${student.address}"></strong>
+                </div>
+
+                <div class="detail-item full-width">
+                    <span><i class="bi bi-calendar-event"></i> Date of Birth</span>
+                    <strong th:text="${student.dateofbirth}"></strong>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Back Link -->
+        <div class="text-center back-link">
+            <a th:href="@{/retrieving}">
+                <i class="bi bi-arrow-left me-2"></i>
+                View All Student Records
+            </a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
     </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

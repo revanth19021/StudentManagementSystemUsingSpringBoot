@@ -3,106 +3,401 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Student Management System - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
+
 <body>
 
-    <header>
-        <h1>Student Management System</h1>
-        <p>Welcome to Our College Student Portal</p>
-    </header>
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar sticky-top">
+    <div class="container">
 
-    <hr>
+        <a class="navbar-brand fw-bold" th:href="@{/}">
+            <i class="bi bi-mortarboard-fill me-2"></i>
+            Student Portal
+        </a>
 
-    <nav>
-        <a th:href="@{/}">Home</a> |
-        <a th:href="@{/about}">About</a> |
-        <a th:href="@{/register}">Register</a> |
-        <a th:href="@{/update}">Update</a> |
-        <a th:href="@{/delete}">Delete</a> |
-        <a th:href="@{/contact}">Contact</a> |
-        |
-        <a th:href="@{/retrieving}">View All Students</a>
-    </nav>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <hr>
+        <div class="collapse navbar-collapse" id="navbarContent">
 
-    <main>
+            <ul class="navbar-nav ms-auto align-items-lg-center">
 
-        <section>
-            <h2>Welcome to Student Management System</h2>
+                <li class="nav-item">
+                    <a class="nav-link active" th:href="@{/}">Home</a>
+                </li>
 
-            <p>
-                The Student Management System is a web-based application
-                designed to manage student information efficiently.
-                It helps the college maintain student records in a
-                centralized database.
-            </p>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">About</a>
+                </li>
 
-            <p>
-                Students can be registered, updated and deleted
-                through this application. The system provides an
-                easy way to maintain student information.
-            </p>
-        </section>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">Register</a>
+                </li>
 
-        <hr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/update}">Update</a>
+                </li>
 
-        <section>
-            <h2>Our Services</h2>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/delete}">Delete</a>
+                </li>
 
-            <h3>1. Student Registration</h3>
-            <p>Register new students by entering their personal details.</p>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contact}">Contact</a>
+                </li>
 
-            <h3>2. Update Student Details</h3>
-            <p>Modify existing student information using the student ID.</p>
+                <li class="nav-item ms-lg-3">
+                    <a class="btn btn-view" th:href="@{/retrieving}">
+                        <i class="bi bi-people-fill me-1"></i>
+                        View Students
+                    </a>
+                </li>
 
-            <h3>3. Delete Student Records</h3>
-            <p>Remove student records using their unique student ID.</p>
-
-            <h3>4. College Information</h3>
-            <p>Explore college details and available academic branches.</p>
-
-        </section>
-
-        <hr>
-
-        <section>
-            <h2>Student Information Managed by Our System</h2>
-
-            <ul>
-                <li>Student ID</li>
-                <li>Student Name</li>
-                <li>Branch</li>
-                <li>Email Address</li>
-                <li>Mobile Number</li>
-                <li>Address</li>
-                <li>Date of Birth</li>
             </ul>
-        </section>
+        </div>
+    </div>
+</nav>
 
-        <hr>
 
-        <section>
-            <h2>Why Choose Our System?</h2>
+<!-- Hero Section -->
+<section class="hero-section">
 
-            <ul>
-                <li>Easy management of student records.</li>
-                <li>Centralized student information.</li>
-                <li>Quick updating of student details.</li>
-                <li>User-friendly interface.</li>
-                <li>Efficient database management.</li>
-            </ul>
-        </section>
+    <div class="container">
+        <div class="row align-items-center min-vh-75">
 
-    </main>
+            <div class="col-lg-7 hero-content">
 
-    <hr>
+                <span class="hero-badge">
+                    <i class="bi bi-stars me-2"></i>
+                    Smart College Administration
+                </span>
 
-    <footer>
-        <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
-        <p>Designed for College Administration</p>
-    </footer>
+                <h1>
+                    Manage Students.
+                    <span>Simplify Education.</span>
+                </h1>
+
+                <p class="hero-description">
+                    A powerful and simple platform to manage student
+                    information, maintain academic records and organize
+                    college administration efficiently.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a th:href="@{/register}" class="btn btn-primary-custom">
+                        <i class="bi bi-person-plus-fill me-2"></i>
+                        Register Student
+                    </a>
+
+                    <a th:href="@{/retrieving}" class="btn btn-outline-custom">
+                        <i class="bi bi-arrow-right-circle me-2"></i>
+                        Explore Records
+                    </a>
+
+                </div>
+
+                <div class="hero-features">
+                    <span><i class="bi bi-check-circle-fill"></i> Easy Management</span>
+                    <span><i class="bi bi-check-circle-fill"></i> Secure Records</span>
+                    <span><i class="bi bi-check-circle-fill"></i> Fast Access</span>
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+
+                <div class="hero-visual">
+
+                    <div class="floating-icon icon-one">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <div class="dashboard-header">
+                            <div>
+                                <small>COLLEGE MANAGEMENT</small>
+                                <h4>Student Portal</h4>
+                            </div>
+                            <i class="bi bi-grid-fill"></i>
+                        </div>
+
+                        <div class="dashboard-main-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+
+                        <h3>One Platform.</h3>
+                        <h3 class="text-gradient">Complete Control.</h3>
+
+                        <p>
+                            Everything you need to manage student
+                            information in one place.
+                        </p>
+
+                        <div class="dashboard-bottom">
+                            <span><i class="bi bi-check-circle-fill"></i> Registration</span>
+                            <span><i class="bi bi-check-circle-fill"></i> Records</span>
+                        </div>
+
+                    </div>
+
+                    <div class="floating-icon icon-two">
+                        <i class="bi bi-journal-check"></i>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+
+    <div class="container">
+
+        <div class="section-heading text-center">
+            <span>WHAT WE OFFER</span>
+            <h2>Everything Made <span>Simple.</span></h2>
+            <p>Manage your college student records with simple and powerful features.</p>
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon purple">
+                        <i class="bi bi-person-plus-fill"></i>
+                    </div>
+                    <h4>Student Registration</h4>
+                    <p>Register new students and maintain their personal and academic information.</p>
+                    <a th:href="@{/register}">Get Started <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon blue">
+                        <i class="bi bi-pencil-square"></i>
+                    </div>
+                    <h4>Update Details</h4>
+                    <p>Modify existing student information whenever changes are required.</p>
+                    <a th:href="@{/update}">Update Now <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon orange">
+                        <i class="bi bi-trash3-fill"></i>
+                    </div>
+                    <h4>Delete Records</h4>
+                    <p>Remove unwanted student records using their unique student ID.</p>
+                    <a th:href="@{/delete}">Manage Records <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="service-card">
+                    <div class="service-icon green">
+                        <i class="bi bi-database-fill-check"></i>
+                    </div>
+                    <h4>View Students</h4>
+                    <p>Access and review all registered student information in one place.</p>
+                    <a th:href="@{/retrieving}">View Records <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Student Information Section -->
+<section class="information-section">
+
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="section-tag">CENTRALIZED INFORMATION</span>
+
+                <h2>All Student Details.<br>
+                    <span>One Organized System.</span>
+                </h2>
+
+                <p>
+                    Our Student Management System keeps essential student
+                    information organized and accessible through a
+                    centralized database.
+                </p>
+
+                <a th:href="@{/retrieving}" class="btn btn-primary-custom mt-3">
+                    Explore Student Records
+                    <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div class="information-card">
+
+                    <div class="info-item">
+                        <i class="bi bi-person-badge"></i>
+                        <div>
+                            <h6>Student ID</h6>
+                            <p>Unique student identification</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-person"></i>
+                        <div>
+                            <h6>Student Name</h6>
+                            <p>Personal identification details</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-book"></i>
+                        <div>
+                            <h6>Branch</h6>
+                            <p>Academic department information</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <h6>Email Address</h6>
+                            <p>Student communication details</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-telephone"></i>
+                        <div>
+                            <h6>Mobile Number</h6>
+                            <p>Contact information</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <i class="bi bi-geo-alt"></i>
+                        <div>
+                            <h6>Address & Date of Birth</h6>
+                            <p>Additional personal information</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Why Choose Us -->
+<section class="why-section">
+
+    <div class="container text-center">
+
+        <div class="section-heading">
+            <span>WHY CHOOSE US</span>
+            <h2>Designed for <span>Efficiency.</span></h2>
+        </div>
+
+        <div class="row g-4 mt-4">
+
+            <div class="col-md-4">
+                <div class="why-card">
+                    <i class="bi bi-lightning-charge-fill"></i>
+                    <h4>Fast Operations</h4>
+                    <p>Perform student management operations quickly and easily.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-card">
+                    <i class="bi bi-shield-check"></i>
+                    <h4>Organized Records</h4>
+                    <p>Keep student information structured and centrally maintained.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="why-card">
+                    <i class="bi bi-display"></i>
+                    <h4>Easy Interface</h4>
+                    <p>Access important features through a clean and user-friendly interface.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer class="footer-section">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-md-6">
+                <h4>
+                    <i class="bi bi-mortarboard-fill me-2"></i>
+                    Student Portal
+                </h4>
+                <p>Smart Management. Better Administration.</p>
+            </div>
+
+            <div class="col-md-6 text-md-end">
+                <p>© 2026 Student Management System.</p>
+                <p>Designed for College Administration.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>

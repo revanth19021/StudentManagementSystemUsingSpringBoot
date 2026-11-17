@@ -1,0 +1,454 @@
+
+/* ==========================
+   GLOBAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f3f5ff;
+    color: #172033;
+}
+
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.custom-navbar {
+    background: #101b3c;
+    padding: 16px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+.navbar-brand i {
+    color: #9b8cff;
+}
+
+.nav-link {
+    color: #dce3ff !important;
+    margin: 0 8px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #a99dff !important;
+    transform: translateY(-2px);
+}
+
+.btn-view {
+    background: #7965ed;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    transition: 0.3s;
+}
+
+.btn-view:hover {
+    background: #9585ff;
+    color: white;
+    transform: translateY(-3px);
+}
+
+
+/* ==========================
+   REGISTRATION SECTION
+========================== */
+
+.registration-section {
+    padding: 75px 0 85px;
+
+    background:
+        radial-gradient(circle at 10% 10%, #e5e1ff, transparent 30%),
+        radial-gradient(circle at 90% 80%, #dceeff, transparent 30%),
+        #f3f5ff;
+}
+
+
+/* ==========================
+   PAGE HEADING
+========================== */
+
+.registration-heading {
+    margin-bottom: 45px;
+    animation: slideUp 0.7s ease;
+}
+
+.heading-badge {
+    display: inline-block;
+    background: #e9e5ff;
+    color: #7965ed;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.registration-heading h1 {
+    font-size: clamp(32px, 5vw, 46px);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.registration-heading h1 span {
+    color: #7965ed;
+}
+
+.registration-heading p {
+    color: #7c859b;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+
+/* ==========================
+   REGISTRATION CARD
+========================== */
+
+.registration-card {
+    max-width: 950px;
+    margin: auto;
+    background: white;
+    border-radius: 22px;
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 60px rgba(30,40,90,0.08);
+
+    animation: slideUp 0.9s ease;
+}
+
+
+/* ==========================
+   CARD HEADER
+========================== */
+
+.card-header-custom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: linear-gradient(110deg, #101b3c, #34477d);
+
+    padding: 30px 40px;
+    color: white;
+}
+
+.header-icon {
+    width: 60px;
+    height: 60px;
+
+    display: grid;
+    place-items: center;
+
+    background: rgba(255,255,255,0.15);
+    border-radius: 16px;
+
+    font-size: 28px;
+    color: #b7aaff;
+}
+
+.card-header-custom h3 {
+    font-size: 22px;
+    font-weight: 750;
+    margin-bottom: 5px;
+}
+
+.card-header-custom p {
+    font-size: 13px;
+    color: #c4cdec;
+    margin: 0;
+}
+
+
+/* ==========================
+   FORM BODY
+========================== */
+
+.registration-card form {
+    padding: 40px;
+}
+
+.form-section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 18px;
+    font-weight: 750;
+
+    color: #25335c;
+
+    border-bottom: 1px solid #edf0f8;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+}
+
+.form-section-title i {
+    color: #7965ed;
+    font-size: 21px;
+}
+
+
+/* ==========================
+   INPUT LABELS
+========================== */
+
+.form-label {
+    display: block;
+    color: #35405e;
+    font-size: 14px;
+    font-weight: 650;
+    margin-bottom: 10px;
+}
+
+
+/* ==========================
+   INPUT FIELDS
+========================== */
+
+.input-group-custom {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-group-custom > i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    color: #8a80d8;
+    font-size: 18px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.input-group-custom .form-control,
+.input-group-custom .form-select {
+    width: 100%;
+    height: 53px;
+
+    padding: 12px 15px 12px 48px;
+
+    border: 1px solid #e3e7f2;
+    border-radius: 11px;
+
+    background: #fafbff;
+
+    font-size: 14px;
+    color: #27324e;
+
+    transition: all 0.3s ease;
+
+    box-shadow: none;
+}
+
+.input-group-custom .form-control:focus,
+.input-group-custom .form-select:focus {
+    border-color: #8876f4;
+
+    background: white;
+
+    box-shadow: 0 0 0 4px rgba(121,101,237,0.12);
+}
+
+
+/* ==========================
+   TEXTAREA
+========================== */
+
+.textarea-group {
+    align-items: flex-start;
+}
+
+.textarea-group > i {
+    top: 19px;
+    transform: none;
+}
+
+.textarea-group textarea {
+    height: auto !important;
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* ==========================
+   BUTTONS
+========================== */
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+
+    border-top: 1px solid #edf0f8;
+
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.btn-clear,
+.btn-register {
+    border: none;
+    padding: 14px 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 650;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+.btn-clear {
+    background: #f0f1f7;
+    color: #56617c;
+}
+
+.btn-clear:hover {
+    background: #e2e4ef;
+    transform: translateY(-3px);
+}
+
+.btn-register {
+    background: linear-gradient(110deg, #7965ed, #9a85ff);
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(121,101,237,0.2);
+}
+
+.btn-register:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(121,101,237,0.35);
+}
+
+
+/* ==========================
+   BOTTOM NOTE
+========================== */
+
+.bottom-note {
+    text-align: center;
+    margin-top: 25px;
+    color: #78839c;
+    font-size: 13px;
+}
+
+.bottom-note i {
+    color: #24a879;
+    margin-right: 5px;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer-section {
+    background: #101b3c;
+    color: white;
+    padding: 30px 0;
+}
+
+.footer-section h5 {
+    font-weight: 750;
+}
+
+.footer-section h5 i {
+    color: #a99dff;
+}
+
+.footer-section p {
+    color: #abb7d4;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        padding-top: 15px;
+    }
+
+    .nav-link {
+        padding: 10px 0;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .registration-section {
+        padding: 45px 15px;
+    }
+
+    .registration-card form {
+        padding: 25px 20px;
+    }
+
+    .card-header-custom {
+        padding: 25px 20px;
+    }
+
+    .card-header-custom h3 {
+        font-size: 19px;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .btn-clear,
+    .btn-register {
+        width: 100%;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}

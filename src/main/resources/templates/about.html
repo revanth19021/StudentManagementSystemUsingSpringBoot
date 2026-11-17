@@ -3,153 +3,594 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>About Our College</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+          rel="stylesheet">
+
+    <!-- Internal CSS -->
+    <style>
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f7fc;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Page Loader */
+        #loader {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: #123c69;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-content {
+            text-align: center;
+            color: white;
+        }
+
+        .loader-content .spinner-border {
+            width: 60px;
+            height: 60px;
+        }
+
+        .loader-content h4 {
+            margin-top: 20px;
+            letter-spacing: 2px;
+        }
+
+        /* Header */
+        .header-section {
+            background: linear-gradient(135deg, #123c69, #2874a6);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .header-section h1 {
+            font-size: 40px;
+            font-weight: 700;
+        }
+
+        .header-section p {
+            font-size: 17px;
+            margin-top: 10px;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: #172b4d;
+        }
+
+        .navbar-brand {
+            color: white !important;
+            font-weight: bold;
+        }
+
+        .navbar-nav .nav-link {
+            color: white !important;
+            padding: 12px 16px;
+            transition: 0.3s;
+        }
+
+        .navbar-nav .nav-link:hover {
+            background: #2874a6;
+            border-radius: 6px;
+        }
+
+        /* Main Sections */
+        .content-section {
+            padding: 50px 0;
+        }
+
+        .custom-card {
+            border: none;
+            border-radius: 12px;
+            padding: 25px;
+            height: 100%;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.13);
+        }
+
+        .section-title {
+            color: #123c69;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #2874a6;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+
+        .custom-card p {
+            color: #555;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        /* Icons */
+        .feature-icon {
+            font-size: 40px;
+            color: #2874a6;
+            margin-bottom: 15px;
+        }
+
+        /* Lists */
+        .custom-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .custom-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .custom-list i {
+            color: #2874a6;
+            margin-right: 10px;
+        }
+
+        /* Branch Table */
+        .table {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table thead {
+            background: #123c69;
+            color: white;
+        }
+
+        .table thead th {
+            background: #123c69;
+            color: white;
+            padding: 15px;
+        }
+
+        .table tbody td {
+            padding: 13px;
+            vertical-align: middle;
+        }
+
+        .table tbody tr:hover {
+            background: #dcecf9;
+        }
+
+        /* Footer */
+        footer {
+            background: #172b4d;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* Responsive */
+        @media(max-width: 768px) {
+
+            .header-section h1 {
+                font-size: 28px;
+            }
+
+            .header-section {
+                padding: 35px 15px;
+            }
+
+            .content-section {
+                padding: 25px 0;
+            }
+
+            .custom-card {
+                padding: 20px;
+            }
+        }
+
+    </style>
 </head>
+
 <body>
 
-    <h1>About Our College</h1>
+<!-- Advanced Page Loader -->
+<div id="loader">
+    <div class="loader-content">
 
-        <nav>
-        <a th:href="@{/}">Home</a> |
-        <a th:href="@{/about}">About</a> |
-        <a th:href="@{/register}">Register</a> |
-        <a th:href="@{/update}">Update</a> |
-        <a th:href="@{/delete}">Delete</a> |
-        <a th:href="@{/contact}">Contact</a> |
-        |
-        <a th:href="@{/retrieving}">View All Students</a>
-    </nav>
+        <div class="spinner-border text-light"
+             role="status">
+        </div>
 
-    <hr>
+        <h4>ABC ENGINEERING COLLEGE</h4>
+        <p>Loading Please Wait...</p>
 
-    <section>
-        <h2>College Overview</h2>
+    </div>
+</div>
 
-        <p>
-            ABC Engineering College is an educational institution
-            dedicated to providing quality technical education.
-            Our college focuses on academic excellence, practical
-            learning, innovation and career development.
-        </p>
+<!-- Header -->
+<header class="header-section">
 
-        <p>
-            We provide students with opportunities to develop
-            technical knowledge, communication skills and
-            problem-solving abilities.
-        </p>
-    </section>
+    <h1>
+        <i class="bi bi-mortarboard-fill"></i>
+        About Our College
+    </h1>
 
-    <hr>
+    <p>Knowledge | Innovation | Excellence</p>
 
-    <section>
-        <h2>Our Vision</h2>
+</header>
 
-        <p>
-            To become a leading educational institution by
-            providing quality education and developing skilled
-            professionals for the future.
-        </p>
-    </section>
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark">
 
-    <hr>
+    <div class="container">
 
-    <section>
-        <h2>Our Mission</h2>
+        <a class="navbar-brand" th:href="@{/}">
+            ABC College
+        </a>
 
-        <ul>
-            <li>Provide quality technical education.</li>
-            <li>Encourage innovation and research.</li>
-            <li>Develop technical and communication skills.</li>
-            <li>Prepare students for industry requirements.</li>
-            <li>Promote ethical values and professional development.</li>
-        </ul>
-    </section>
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu">
 
-    <hr>
+            <span class="navbar-toggler-icon"></span>
 
-    <section>
-        <h2>Academic Branches</h2>
+        </button>
 
-        <p>
-            Our college offers various engineering branches
-            to help students develop specialized technical knowledge.
-        </p>
+        <div class="collapse navbar-collapse" id="navbarMenu">
 
-        <table border="1" cellpadding="10">
+            <ul class="navbar-nav ms-auto">
 
-            <tr>
-                <th>S.No</th>
-                <th>Branch Name</th>
-                <th>Branch Code</th>
-                <th>Department</th>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">
+                        <i class="bi bi-house"></i> Home
+                    </a>
+                </li>
 
-            <tr>
-                <td>1</td>
-                <td>Computer Science and Engineering</td>
-                <td>CSE</td>
-                <td>Computer Science</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/about}">
+                        <i class="bi bi-info-circle"></i> About
+                    </a>
+                </li>
 
-            <tr>
-                <td>2</td>
-                <td>Electronics and Communication Engineering</td>
-                <td>ECE</td>
-                <td>Electronics</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">
+                        <i class="bi bi-person-plus"></i> Register
+                    </a>
+                </li>
 
-            <tr>
-                <td>3</td>
-                <td>Electrical and Electronics Engineering</td>
-                <td>EEE</td>
-                <td>Electrical</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/update}">
+                        <i class="bi bi-pencil-square"></i> Update
+                    </a>
+                </li>
 
-            <tr>
-                <td>4</td>
-                <td>Information Technology</td>
-                <td>IT</td>
-                <td>Information Technology</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/delete}">
+                        <i class="bi bi-trash"></i> Delete
+                    </a>
+                </li>
 
-            <tr>
-                <td>5</td>
-                <td>Mechanical Engineering</td>
-                <td>MECH</td>
-                <td>Mechanical</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/contact}">
+                        <i class="bi bi-envelope"></i> Contact
+                    </a>
+                </li>
 
-            <tr>
-                <td>6</td>
-                <td>Civil Engineering</td>
-                <td>CIVIL</td>
-                <td>Civil</td>
-            </tr>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/retrieving}">
+                        <i class="bi bi-people"></i> Students
+                    </a>
+                </li>
 
-        </table>
-    </section>
+            </ul>
 
-    <hr>
+        </div>
+    </div>
+</nav>
 
-    <section>
-        <h2>Facilities</h2>
+<!-- College Overview -->
+<div class="container content-section">
 
-        <ul>
-            <li>Computer Laboratories</li>
-            <li>Library</li>
-            <li>Digital Classrooms</li>
-            <li>Internet and Wi-Fi Facilities</li>
-            <li>Sports and Recreation</li>
-            <li>Placement and Training Cell</li>
-        </ul>
-    </section>
+    <div class="row g-4">
 
-    <hr>
+        <div class="col-lg-12">
 
-    <footer>
-        <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
-        <p>Designed for College Administration</p>
-    </footer>
+            <div class="custom-card">
+
+                <h2 class="section-title">
+                    <i class="bi bi-building"></i>
+                    College Overview
+                </h2>
+
+                <p>
+                    ABC Engineering College is an educational
+                    institution dedicated to providing quality
+                    technical education. Our college focuses on
+                    academic excellence, practical learning,
+                    innovation and career development.
+                </p>
+
+                <p>
+                    We provide students with opportunities to
+                    develop technical knowledge, communication
+                    skills and problem-solving abilities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Vision and Mission -->
+    <div class="row g-4 mt-2">
+
+        <div class="col-md-6">
+
+            <div class="custom-card text-center">
+
+                <i class="bi bi-eye feature-icon"></i>
+
+                <h2 class="section-title">Our Vision</h2>
+
+                <p>
+                    To become a leading educational institution
+                    by providing quality education and developing
+                    skilled professionals for the future.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="custom-card">
+
+                <div class="text-center">
+
+                    <i class="bi bi-bullseye feature-icon"></i>
+
+                    <h2 class="section-title">Our Mission</h2>
+
+                </div>
+
+                <ul class="custom-list">
+
+                    <li><i class="bi bi-check-circle-fill"></i>
+                        Provide quality technical education.</li>
+
+                    <li><i class="bi bi-check-circle-fill"></i>
+                        Encourage innovation and research.</li>
+
+                    <li><i class="bi bi-check-circle-fill"></i>
+                        Develop technical and communication skills.</li>
+
+                    <li><i class="bi bi-check-circle-fill"></i>
+                        Prepare students for industry requirements.</li>
+
+                    <li><i class="bi bi-check-circle-fill"></i>
+                        Promote ethical values and professional development.</li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Academic Branches -->
+    <div class="row mt-5">
+
+        <div class="col-12">
+
+            <div class="custom-card">
+
+                <h2 class="section-title">
+                    <i class="bi bi-book"></i>
+                    Academic Branches
+                </h2>
+
+                <p>
+                    Our college offers various engineering branches
+                    to help students develop specialized technical knowledge.
+                </p>
+
+                <div class="table-responsive">
+
+                    <table class="table table-bordered table-hover text-center">
+
+                        <thead>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Branch Name</th>
+                                <th>Branch Code</th>
+                                <th>Department</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>1</td>
+                                <td>Computer Science and Engineering</td>
+                                <td><span class="badge bg-primary">CSE</span></td>
+                                <td>Computer Science</td>
+                            </tr>
+
+                            <tr>
+                                <td>2</td>
+                                <td>Electronics and Communication Engineering</td>
+                                <td><span class="badge bg-primary">ECE</span></td>
+                                <td>Electronics</td>
+                            </tr>
+
+                            <tr>
+                                <td>3</td>
+                                <td>Electrical and Electronics Engineering</td>
+                                <td><span class="badge bg-primary">EEE</span></td>
+                                <td>Electrical</td>
+                            </tr>
+
+                            <tr>
+                                <td>4</td>
+                                <td>Information Technology</td>
+                                <td><span class="badge bg-primary">IT</span></td>
+                                <td>Information Technology</td>
+                            </tr>
+
+                            <tr>
+                                <td>5</td>
+                                <td>Mechanical Engineering</td>
+                                <td><span class="badge bg-primary">MECH</span></td>
+                                <td>Mechanical</td>
+                            </tr>
+
+                            <tr>
+                                <td>6</td>
+                                <td>Civil Engineering</td>
+                                <td><span class="badge bg-primary">CIVIL</span></td>
+                                <td>Civil</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Facilities -->
+    <div class="row mt-4">
+
+        <div class="col-12">
+
+            <div class="custom-card">
+
+                <h2 class="section-title">
+                    <i class="bi bi-stars"></i>
+                    College Facilities
+                </h2>
+
+                <div class="row g-3">
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-pc-display feature-icon"></i>
+                            <h5>Computer Laboratories</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-book-half feature-icon"></i>
+                            <h5>Library</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-display feature-icon"></i>
+                            <h5>Digital Classrooms</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-wifi feature-icon"></i>
+                            <h5>Internet and Wi-Fi</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-trophy feature-icon"></i>
+                            <h5>Sports and Recreation</h5>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded text-center">
+                            <i class="bi bi-briefcase feature-icon"></i>
+                            <h5>Placement and Training</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+
+    <h5>ABC Engineering College</h5>
+
+    <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
+
+    <p>Designed for College Administration</p>
+
+    <div class="mt-3">
+        <i class="bi bi-facebook mx-2"></i>
+        <i class="bi bi-instagram mx-2"></i>
+        <i class="bi bi-linkedin mx-2"></i>
+    </div>
+
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<!-- Loader Script -->
+<script>
+
+    window.addEventListener("load", function() {
+
+        const loader = document.getElementById("loader");
+
+        loader.style.opacity = "0";
+
+        setTimeout(function() {
+            loader.style.display = "none";
+        }, 600);
+
+    });
+
+</script>
 
 </body>
 </html>

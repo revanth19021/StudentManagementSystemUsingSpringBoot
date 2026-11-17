@@ -1,0 +1,549 @@
+
+/* ==========================
+   GLOBAL
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f3f5ff;
+    color: #172033;
+}
+
+
+/* ==========================
+   NAVIGATION
+========================== */
+
+.custom-navbar {
+    background: #101b3c;
+    padding: 16px 0;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.12);
+}
+
+.navbar-brand {
+    font-size: 22px;
+}
+
+.navbar-brand i {
+    color: #9b8cff;
+}
+
+.nav-link {
+    color: #dce3ff !important;
+    margin: 0 8px;
+    transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #a99dff !important;
+}
+
+.btn-view {
+    background: #7965ed;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+
+.btn-view:hover {
+    background: #9585ff;
+    color: white;
+}
+
+
+/* ==========================
+   MAIN SECTION
+========================== */
+
+.records-section {
+    min-height: 80vh;
+    padding: 65px 0 85px;
+
+    background:
+        radial-gradient(circle at 10% 10%, #e5e1ff, transparent 30%),
+        radial-gradient(circle at 90% 80%, #dceeff, transparent 30%),
+        #f3f5ff;
+}
+
+
+/* ==========================
+   PAGE HEADING
+========================== */
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 40px;
+    animation: slideUp 0.7s ease;
+}
+
+.heading-badge {
+    display: inline-block;
+    background: #e9e5ff;
+    color: #7965ed;
+    padding: 9px 18px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 750;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.page-heading h1 {
+    font-size: clamp(32px, 5vw, 45px);
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.page-heading h1 span {
+    color: #7965ed;
+}
+
+.page-heading p {
+    color: #7c859b;
+    font-size: 15px;
+}
+
+
+/* ==========================
+   BUTTON
+========================== */
+
+.btn-add {
+    display: inline-block;
+    background: linear-gradient(110deg, #7965ed, #9a85ff);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 650;
+    white-space: nowrap;
+    transition: 0.35s ease;
+    border: none;
+}
+
+.btn-add:hover {
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(121,101,237,0.3);
+}
+
+
+/* ==========================
+   STATISTICS CARDS
+========================== */
+
+.stats-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    background: white;
+    padding: 25px;
+
+    border-radius: 17px;
+    border: 1px solid #edf0f8;
+
+    box-shadow: 0 8px 25px rgba(30,40,90,0.04);
+
+    transition: 0.35s ease;
+}
+
+.stats-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(30,40,90,0.1);
+}
+
+.stats-icon {
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    font-size: 26px;
+}
+
+.purple {
+    background: #eeeaff;
+    color: #7965ed;
+}
+
+.blue {
+    background: #e5f3ff;
+    color: #2996e8;
+}
+
+.green {
+    background: #e4faef;
+    color: #22ae72;
+}
+
+.stats-card p {
+    color: #8992a8;
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.stats-card h3 {
+    font-size: 27px;
+    font-weight: 800;
+    margin: 0;
+    color: #25335c;
+}
+
+.stats-card .status-text {
+    color: #22ae72;
+    font-size: 20px;
+}
+
+
+/* ==========================
+   RECORDS CARD
+========================== */
+
+.records-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+
+    border: 1px solid #edf0f8;
+
+    box-shadow: 0 15px 45px rgba(30,40,90,0.06);
+
+    animation: slideUp 0.9s ease;
+}
+
+
+/* ==========================
+   RECORDS HEADER
+========================== */
+
+.records-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    padding: 30px;
+
+    border-bottom: 1px solid #edf0f8;
+}
+
+.records-header h4 {
+    font-weight: 750;
+    font-size: 20px;
+    margin-bottom: 7px;
+}
+
+.records-header h4 i {
+    color: #7965ed;
+}
+
+.records-header p {
+    color: #8992a8;
+    font-size: 13px;
+    margin: 0;
+}
+
+
+/* ==========================
+   SEARCH BOX
+========================== */
+
+.search-box {
+    position: relative;
+    width: 280px;
+}
+
+.search-box i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: #7965ed;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 15px 12px 42px;
+    border-radius: 10px;
+    border: 1px solid #e3e7f2;
+    background: #fafbff;
+    outline: none;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.search-box input:focus {
+    border-color: #8876f4;
+    background: white;
+    box-shadow: 0 0 0 4px rgba(121,101,237,0.1);
+}
+
+
+/* ==========================
+   TABLE
+========================== */
+
+.student-table {
+    margin: 0;
+    white-space: nowrap;
+}
+
+.student-table thead {
+    background: #f6f7ff;
+}
+
+.student-table th {
+    color: #56617c;
+    font-size: 12px;
+    font-weight: 750;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+
+    padding: 20px 18px;
+    border-bottom: 1px solid #e9ecf5;
+}
+
+.student-table td {
+    padding: 18px;
+    font-size: 13px;
+    color: #626d85;
+    vertical-align: middle;
+    border-bottom: 1px solid #f0f1f7;
+}
+
+.student-table tbody tr {
+    transition: 0.25s ease;
+}
+
+.student-table tbody tr:hover {
+    background: #f8f7ff;
+}
+
+
+/* ==========================
+   STUDENT ID
+========================== */
+
+.student-id {
+    display: inline-block;
+    background: #eeeaff;
+    color: #7965ed;
+    padding: 7px 12px;
+    border-radius: 7px;
+    font-weight: 750;
+}
+
+
+/* ==========================
+   STUDENT NAME
+========================== */
+
+.student-name {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #27324e;
+    font-weight: 650;
+}
+
+.student-avatar {
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #eeeaff;
+    color: #7965ed;
+    font-size: 17px;
+}
+
+
+/* ==========================
+   BRANCH BADGES
+========================== */
+
+.branch-badge {
+    display: inline-block;
+    background: #e7f3ff;
+    color: #2785d5;
+    padding: 7px 12px;
+    border-radius: 7px;
+    font-size: 11px;
+    font-weight: 750;
+}
+
+
+/* ==========================
+   EMPTY STATE
+========================== */
+
+.empty-state {
+    text-align: center;
+    padding: 65px 20px !important;
+    white-space: normal;
+}
+
+.empty-state > i {
+    font-size: 50px;
+    color: #9988f5;
+}
+
+.empty-state h5 {
+    margin-top: 15px;
+    font-weight: 750;
+}
+
+.empty-state p {
+    color: #8992a8;
+    margin-bottom: 20px;
+}
+
+.no-search-results {
+    display: none;
+    text-align: center;
+    padding: 30px;
+    color: #8992a8;
+}
+
+.no-search-results i {
+    font-size: 30px;
+    color: #7965ed;
+}
+
+.no-search-results p {
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   RECORDS FOOTER
+========================== */
+
+.records-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    padding: 20px 30px;
+
+    border-top: 1px solid #edf0f8;
+
+    color: #8992a8;
+    font-size: 12px;
+}
+
+.back-home {
+    text-decoration: none;
+    color: #7965ed;
+    font-weight: 700;
+}
+
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer-section {
+    background: #101b3c;
+    color: white;
+    padding: 30px 0;
+}
+
+.footer-section h5 {
+    font-weight: 750;
+}
+
+.footer-section h5 i {
+    color: #a99dff;
+}
+
+.footer-section p {
+    color: #abb7d4;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+
+/* ==========================
+   ANIMATIONS
+========================== */
+
+@keyframes slideUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 991px) {
+
+    .navbar-nav {
+        padding-top: 15px;
+    }
+
+    .page-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .records-section {
+        padding: 40px 12px;
+    }
+
+    .records-header {
+        padding: 22px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .records-footer {
+        padding: 20px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
