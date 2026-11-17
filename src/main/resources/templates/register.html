@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Registration</title>
+</head>
+<body>
+
+    <h1>Student Registration Form</h1>
+
+    <nav>
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/about}">About</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/update}">Update</a> |
+        <a th:href="@{/delete}">Delete</a> |
+        <a th:href="@{/contact}">Contact</a> |
+        <a th:href="@{/retrieving}">View All Students</a>
+    </nav>
+
+    <hr>
+
+    <form action="/register" method="post">
+
+        <label>Student ID:</label>
+        <input type="number" name="studentid" required>
+        <br><br>
+
+        <label>Student Name:</label>
+        <input type="text" name="studentname" required>
+        <br><br>
+
+        <label>Branch:</label>
+        <select name="branch" required>
+            <option value="">Select Branch</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="IT">IT</option>
+            <option value="MECH">MECH</option>
+            <option value="CIVIL">CIVIL</option>
+        </select>
+        <br><br>
+
+        <label>Email:</label>
+        <input type="email" name="email" required>
+        <br><br>
+
+        <label>Mobile Number:</label>
+        <input type="tel" name="mobileno" required>
+        <br><br>
+
+        <label>Address:</label>
+        <textarea name="address" rows="4" cols="30"></textarea>
+        <br><br>
+
+        <label>Date of Birth:</label>
+        <input type="date" name="dateofbirth" required>
+        <br><br>
+
+        <button type="submit">Register Student</button>
+        <button type="reset">Clear</button>
+
+    </form>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Student Management System</p>
+    </footer>
+
+</body>
+</html>

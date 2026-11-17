@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System - Home</title>
+</head>
+<body>
+
+    <header>
+        <h1>Student Management System</h1>
+        <p>Welcome to Our College Student Portal</p>
+    </header>
+
+    <hr>
+
+    <nav>
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/about}">About</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/update}">Update</a> |
+        <a th:href="@{/delete}">Delete</a> |
+        <a th:href="@{/contact}">Contact</a> |
+        |
+        <a th:href="@{/retrieving}">View All Students</a>
+    </nav>
+
+    <hr>
+
+    <main>
+
+        <section>
+            <h2>Welcome to Student Management System</h2>
+
+            <p>
+                The Student Management System is a web-based application
+                designed to manage student information efficiently.
+                It helps the college maintain student records in a
+                centralized database.
+            </p>
+
+            <p>
+                Students can be registered, updated and deleted
+                through this application. The system provides an
+                easy way to maintain student information.
+            </p>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Our Services</h2>
+
+            <h3>1. Student Registration</h3>
+            <p>Register new students by entering their personal details.</p>
+
+            <h3>2. Update Student Details</h3>
+            <p>Modify existing student information using the student ID.</p>
+
+            <h3>3. Delete Student Records</h3>
+            <p>Remove student records using their unique student ID.</p>
+
+            <h3>4. College Information</h3>
+            <p>Explore college details and available academic branches.</p>
+
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Student Information Managed by Our System</h2>
+
+            <ul>
+                <li>Student ID</li>
+                <li>Student Name</li>
+                <li>Branch</li>
+                <li>Email Address</li>
+                <li>Mobile Number</li>
+                <li>Address</li>
+                <li>Date of Birth</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <section>
+            <h2>Why Choose Our System?</h2>
+
+            <ul>
+                <li>Easy management of student records.</li>
+                <li>Centralized student information.</li>
+                <li>Quick updating of student details.</li>
+                <li>User-friendly interface.</li>
+                <li>Efficient database management.</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Student Management System. All Rights Reserved.</p>
+        <p>Designed for College Administration</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Details of the Student</title>
+</head>
+<body>
+<h2>All Student Details</h2>
+    <nav>
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/about}">About</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/update}">Update</a> |
+        <a th:href="@{/delete}">Delete</a> |
+        <a th:href="@{/contact}">Contact</a> |
+ 
+        <a th:href="@{/retrieving}">View All Students</a>
+    </nav>
+<table border="1">
+<tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Branch</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Address</th>
+        </tr>
+        
+        <tr th:each="student: ${students}">
+          <td th:text="${student.studentid}"></td>
+            <td th:text="${student.studentname}"></td>
+            <td th:text="${student.branch}"></td>
+            <td th:text="${student.email}"></td>
+            <td th:text="${student.mobileno}"></td>
+            <td th:text="${student.address}"></td>
+
+        </tr>
+        
+
+
+</table>
+
+</body>
+</html>

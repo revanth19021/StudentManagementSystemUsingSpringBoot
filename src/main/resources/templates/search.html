@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Student</title>
+</head>
+
+<body>
+
+    <h1>Student Management System</h1>
+
+    <nav>
+        <a th:href="@{/}">Home</a> |
+        <a th:href="@{/about}">About</a> |
+        <a th:href="@{/register}">Register</a> |
+        <a th:href="@{/update}">Update</a> |
+        <a th:href="@{/delete}">Delete</a> |
+        <a th:href="@{/contact}">Contact</a> |
+        <a th:href="@{/retrieving}">View All Students</a> |
+        <a th:href="@{/search}">Search Student</a>
+    </nav>
+
+    <hr>
+
+    <h2>Search Student Details</h2>
+
+    <form th:action="@{/search}" method="get">
+
+        <label>Enter Student ID:</label>
+
+        <input type="number"
+               name="studentid"
+               required>
+
+        <button type="submit">Search</button>
+
+        <button type="reset">Clear</button>
+
+    </form>
+
+    <hr>
+
+    <h2>Student Details</h2>
+
+    <p th:if="${message}" th:text="${message}"></p>
+
+    <div th:if="${student != null}">
+
+        <p>Student ID:
+            <span th:text="${student.studentid}"></span>
+        </p>
+
+        <p>Student Name:
+            <span th:text="${student.studentname}"></span>
+        </p>
+
+        <p>Branch:
+            <span th:text="${student.branch}"></span>
+        </p>
+
+        <p>Email:
+            <span th:text="${student.email}"></span>
+        </p>
+
+        <p>Mobile Number:
+            <span th:text="${student.mobileno}"></span>
+        </p>
+
+        <p>Address:
+            <span th:text="${student.address}"></span>
+        </p>
+
+        <p>Date of Birth:
+            <span th:text="${student.dateofbirth}"></span>
+        </p>
+
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; 2026 Student Management System</p>
+    </footer>
+
+</body>
+</html>
